@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
 
-img=cv2.imread("630e71c498e60.jpg")
+img=cv2.imread("630e71c498e600.jpg")
 imgGri=cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 cv2.imshow("TOTORO", img)
-cv2.imshow("GRİ TOTORO", imgGri)
+cv2.imshow("GRI TOTORO", imgGri)
 
 sizeY = img.shape[0]  #genişlik
 sizeX = img.shape[1]  #yükseklik
