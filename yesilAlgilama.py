@@ -15,6 +15,14 @@ while True:
     greenMask = cv2.inRange(hsvFrame, lowerGreen, upperGreen) 
     green = cv2.bitwise_and(frame, frame, mask = greenMask)   
   
+    contours, hierarchy = cv2.findContours(greenMask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+  
+    if len(contours)  != 0:
+        for contour in contours:
+            if cv2.contourArea(contour) > 500:
+                x, y, w, h = cv2.boundingRect(contour)
+                cv2.rectangle(frame, (x,y), (x + w, y + h), (0, 0, 255), 3)
+  
     cv2.imshow("WEBCAM", frame)
     #cv2.imshow("GREEN MASK", greenMask)
     cv2.imshow("GREEN", green)
